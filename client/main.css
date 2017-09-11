@@ -1,0 +1,15 @@
+/* CSS declarations go here */
+
+table, th, td {
+   border: 1px solid black;
+}
+
+td {
+	align : center;
+	font-family: SerifVerdana;
+	width : 30%;
+}
+
+table{
+	background-color: lightgrey;
+}

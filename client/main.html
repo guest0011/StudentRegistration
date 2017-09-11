@@ -1,0 +1,41 @@
+<head>
+  <title>StudentRegistration</title>
+</head>
+
+<body>
+  <h1><center>Student Registration</center></h1>
+
+  {{> studentReg}}
+  
+  {{> studentDetails}}
+</body>
+
+<template name="studentReg">
+	<form id="StudentForm">
+		<table align="center">
+			<tr><td>Student Name : </td><td><input type ="text" name = "studentName"></td></tr>
+			<tr><td>Admission Date : </td><td><input type = "date" name = "admissionDate"></td></tr>
+			<tr><td>Gender : </td><td><input type = "radio" name = "gender" value = "M">Male
+							 <input type = "radio" name = "gender" value = "F">Female</td></tr>
+			<tr><td> Student Address : </td><td><textarea name = "address"></textarea></td></tr>
+			<tr><td align="center" colspan="2"><button type = "submit">Submit</button></td></tr>
+		</table>
+	</form>
+</template>
+
+<template name="studentDetails">
+	<h1><center>Registered Students</center></h1>
+		<table align="center">
+		<tr>
+		<th>Student Name</th>
+		<th>Admission Date</th>
+		<th>Gender</th>
+		<th>Address</th>
+		</tr>
+		{{#each studentList}}
+			<tr><td>{{this.StudentName}}</td><td> {{this.AdmissionDate}}</td><td> {{this.Gender}}</td><td> {{this.Address}}</td></tr>
+		{{/each}}
+		</table>
+</template>
+
+
