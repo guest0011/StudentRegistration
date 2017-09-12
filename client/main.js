@@ -1,5 +1,6 @@
-StudentCollection = new Mongo.Collection("studentCollection");
+
 if(Meteor.isClient)	{
+	StudentCollection = new Mongo.Collection("studentCollection");
 	Meteor.subscribe("studentList");
 	Template.studentDetails.helpers({
 		studentList : function(){
@@ -22,6 +23,9 @@ if(Meteor.isClient)	{
 	});
 }
 if(Meteor.isServer){
+	var driver = new MongoInternals.RemoteCollectionDriver("mongodb://admin:admin@ds147799.mlab.com:47799/studentinformation");
+
+    StudentCollection = new Mongo.Collection("studentCollection", { _driver: driver});
 	Meteor.publish("studentList", function(){
 		return StudentCollection.find().fetch();
 		
